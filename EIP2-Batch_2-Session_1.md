@@ -20,7 +20,7 @@ In the above image the kernel is current on the area marked in Green and the out
 
 ## Kernel
 
-**Kernel** is a small matrix of data.  The weights of the kernel determine what specific features we are trying to detect. This value changes with every iteration over the input data, indicating that network is learning to identify significance of a area for extracting features from the data.
+**Kernel** is a small matrix of data.  The weights of the kernel determine what specific features we are trying to detect. This value changes with every iteration over the input data, indicating that network is learning to identify significance of a area for extracting features from the data. Kernel has the power to reduce size of the input. Size of the kernel plays an import role in finding important feature. Bigger kernel can over look a essential feature where as a smaller one could generate more information. This it is essential to generate a suitable size of the kernel.
 $$
 \begin{vmatrix} 
 \mathbf{1} & \mathbf{0} & \mathbf{1} \\
@@ -54,7 +54,21 @@ Consider the above scenario, we have a 7x7 input matrix and 3x3 Kernel. This ker
 
 ## 3x3 Convolution
 
-When we use a kernel of 3x3 on input matrix , this convolution is known as 3x3 convolution.eeeee
+**3x3 convolution** uses a 3x3 kernel. The size of the kernel is very important, while a small kernel will generate huge volume of information and a large one will overlook features. it is very essential to have a suitable kernel size. so it is general consensus to use a 3x3 kernel. 
+
+
+
+> "Note: I'm excluding 1x1 since that's a special case with its own special use case.
+>
+> The general consensus appears to be that you should use 3x3 filters and stack them in order to get a larger receptive field (ie two 3x3s give a 5x5 receptive field).
+>
+> There are a multitude of reasons why. The primary reason is because two layers with a nonlinearity have more expressive power than a single 5x5 layer and so forth for 7x7 and larger. It's also more parametrically efficient, and thanks to winograd filtering, computationally efficient.
+>
+> Also note that I'm a big fan of dilated convolution, it allows a larger receptive field size for the same amount of parameters and actually results in less overall computation. And empirically, it performs better as well.
+>
+> https://towardsdatascience.com/types-of-convolutions-in-deep-learning-717013397f4d
+
+
 
 
 
