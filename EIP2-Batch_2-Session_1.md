@@ -1,28 +1,26 @@
 # EIP2 Batch 2 Session 1
 
+# URL #
+
+**Delete this before submission**
+
+for kernel.
+
+https://blog.xrds.acm.org/2016/06/convolutional-neural-networks-cnns-illustrated-explanation/
+
+**Delete this before submission**
+
 ## Convolution
 
-**Convolution** is process for combining two sets of data. On the input matrix we will apply a **Filter/Kernel** to produce output matrix known as **Feature Map**.  The **Kernel** will move over the input matrix, performing element wise mathematical operation on the data it is currently on and result out a single data point. This process is repeated until the complete matrix is covered. 
+**Convolution** is a process of extracting feature form an image. Rather than looking into whole image, we look into a smaller area to extract feature. It's like having a small window over a image which moves right and  then down. The importance of this feature will be decided during learning process. Once a feature is found, it will be reported to the **feature map**, which is the output of one round of convolution. The window we are talking about here is known as **kernel** or **filter**.
 
 ![](/home/sahade/Desktop/DeepinScreenshot_select-area_20180930093607.png)
 
-In the above image the kernel is current on the area marked in Green and the output of the operation is stored in the orange shaded area of the feature map. the output will sit roughly the same location as of the input data.
-
-## DATA FROM INTERNET
-
-> In convolutional networks, you look at an image through a smaller window and move that window to the right and down. That way you can find features in that window, for example a horizontal line or a vertical line or a curve etc… What exactly a convolutional neural network considers an important feature is defined while learning.
->
-> Wherever you find those features, you report that in the feature maps. A certain combination of features in a certain area can signal a larger, more complex feature exists there.
->
-> For example, your first feature map could for example looks for curves. The next feature map could look at a combination of curves that build circles. The next feature map could detect a bicycle from lines and circle features.
-
-## DATA FROM INTERNET
-
-
+In the above image the kernel is current on the area marked in Green and the output of the operation is stored in the orange shaded area of the feature map. The output will sit roughly the same location as of the input data.
 
 ## Kernel
 
-**Kernel** is a small matrix of data.  The weights of the kernel determine what specific features we are trying to detect.
+**Kernel** is a small matrix of data.  The weights of the kernel determine what specific features we are trying to detect. This value changes with every iteration over the input data, indicating that network is learning to identify significance of a area for extracting features from the data.
 $$
 \begin{vmatrix} 
 \mathbf{1} & \mathbf{0} & \mathbf{1} \\
@@ -33,6 +31,14 @@ $$
 if we look at the kernel shown above the feature we are are trying to detect is a diagonal line on either direction.
 
 
+
+> ## Filters (Convolution Kernels)
+>
+> A filter (or kernel) is an integral component of the layered architecture.
+>
+> Generally, it refers to an operator applied to the entirety of the image such that it transforms the information encoded in the pixels. In practice, however, a kernel is a smaller-sized matrix in comparison to the input dimensions of the image, that consists of real valued entries.
+>
+> The kernels are then convolved with the input volume to obtain so-called ‘activation maps’. Activation maps indicate ‘activated’ regions, i.e. regions where features specific to the kernel have been detected in the input. The real values of the kernel matrix change with each learning iteration over the training set, indicating that the network is learning to identify which regions are of significance for extracting features from the data.
 
 ## Feature Map
 
